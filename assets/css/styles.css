@@ -1654,22 +1654,6 @@ main { background: var(--white); }
   font-size: 0.88rem;
   line-height: 1.5;
   color: var(--text-muted);
-  margin-bottom: 0.65rem;
-}
-
-.contact-map-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--green-nav);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.contact-map-link:hover {
-  color: var(--green-nav-dark);
 }
 
 .contact-map-wrap {
@@ -1686,9 +1670,10 @@ main { background: var(--white); }
 
 .contact-map {
   position: absolute;
-  inset: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% + 72px);
+  top: -56px;
   border: 0;
 }
 
