@@ -492,6 +492,34 @@
     initFadeUp();
   }
 
+  function initBackToTop() {
+    if (document.getElementById('back-to-top')) return;
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'back-to-top';
+    btn.id = 'back-to-top';
+    btn.setAttribute('aria-label', 'Назад на врв');
+    btn.innerHTML = `
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 19V5"/><path d="m5 12 7-7 7 7"/>
+      </svg>
+    `;
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.body.appendChild(btn);
+
+    function toggleBtn() {
+      btn.classList.toggle('visible', window.scrollY > 320);
+    }
+
+    window.addEventListener('scroll', toggleBtn, { passive: true });
+    toggleBtn();
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     injectHeader();
     injectFooter();
@@ -506,5 +534,6 @@
     initContactForm();
     renderDocuments();
     renderPartners();
+    initBackToTop();
   });
 })();
