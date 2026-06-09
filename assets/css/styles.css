@@ -1587,19 +1587,31 @@ main { background: var(--white); }
 .contact-visual {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 1.5rem 1rem;
+  gap: 1rem;
+  padding: 1.25rem;
   margin-bottom: 1.25rem;
   background: linear-gradient(135deg, var(--green-soft) 0%, var(--white) 100%);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.contact-visual-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.contact-visual-info {
+  flex: 1;
+  min-width: 0;
 }
 
 .map-pin {
   width: 56px;
   height: 56px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1607,7 +1619,6 @@ main { background: var(--white); }
   background: var(--white);
   color: var(--green-nav);
   box-shadow: 0 4px 16px rgba(77, 138, 46, 0.2);
-  margin-bottom: 0.75rem;
   animation: pinBounce 2.5s ease-in-out infinite;
 }
 
@@ -1626,14 +1637,72 @@ main { background: var(--white); }
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
 
 .contact-visual-sub {
+  display: block;
   font-size: 0.78rem;
   color: var(--text-light);
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  margin-bottom: 0.55rem;
+}
+
+.contact-address {
+  font-style: normal;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin-bottom: 0.65rem;
+}
+
+.contact-map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--green-nav);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.contact-map-link:hover {
+  color: var(--green-nav-dark);
+}
+
+.contact-map-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 220px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-dark);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+  background: var(--off-white);
+}
+
+.contact-map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 767px) {
+  .contact-visual-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-map-wrap {
+    aspect-ratio: 4 / 3;
+    min-height: 200px;
+  }
 }
 
 /* 2 — Staggered fade-up (delay set via JS inline style) */
